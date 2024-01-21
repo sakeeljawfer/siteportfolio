@@ -14,72 +14,240 @@ export interface Props {
 }
 
 const {
-  id,
   title = await Astro.slots.render('title'),
-  subtitle = await Astro.slots.render('subtitle'),
-  tagline,
-  content = await Astro.slots.render('content'),
   actions = await Astro.slots.render('actions'),
   image = await Astro.slots.render('image'),
 } = Astro.props;
 ---
 
-<section class="relative md:-mt-[76px] not-prose" {...id ? { id } : {}}>
-  <div class="absolute inset-0 pointer-events-none" aria-hidden="true"></div>
-  <div class="relative max-w-7xl mx-auto px-4 sm:px-6">
-    <div class="pt-0 md:pt-[76px] pointer-events-none"></div>
-    <div class="py-12 md:py-20">
-      <div>
+<script>
+  import { tsParticles } from 'https://cdn.jsdelivr.net/npm/@tsparticles/engine@3.1.0/+esm';
+  import { loadAll } from 'https://cdn.jsdelivr.net/npm/@tsparticles/all@3.1.0/+esm';
+
+  async function loadParticles(options) {
+    await loadAll(tsParticles);
+
+    await tsParticles.load({ id: 'particlesWrapper', options });
+  }
+
+  const particleConfig = {
+    fullScreen: {
+      enable: false,
+    },
+    particles: {
+      number: {
+        value: 355,
+        density: {
+          enable: true,
+          value_area: 789.1476416322727,
+        },
+      },
+      color: {
+        value: '#ffffff',
+      },
+      shape: {
+        type: 'circle',
+        stroke: {
+          width: 5,
+          color: '#000000',
+        },
+        polygon: {
+          nb_sides: 5,
+        },
+      },
+      opacity: {
+        value: 0.48927153781200905,
+        random: true,
+        anim: {
+          enable: true,
+          speed: 0.2,
+          opacity_min: 0,
+          sync: false,
+        },
+      },
+      size: {
+        value: 2,
+        random: true,
+        anim: {
+          enable: true,
+          speed: 2,
+          size_min: 0,
+          sync: false,
+        },
+      },
+      line_linked: {
+        enable: true,
+        distance: 150,
+        color: '#ffffff',
+        opacity: 0.4,
+        width: 1,
+      },
+      move: {
+        enable: true,
+        speed: 0.7,
+        direction: 'none',
+        random: true,
+        straight: false,
+        out_mode: 'out',
+        bounce: false,
+        attract: {
+          enable: false,
+          rotateX: 600,
+          rotateY: 1200,
+        },
+      },
+    },
+    interactivity: {
+      detect_on: 'canvas',
+      events: {
+        onhover: {
+          enable: true,
+          mode: 'bubble',
+        },
+        onclick: {
+          enable: true,
+          mode: 'push',
+        },
+        resize: true,
+      },
+      modes: {
+        grab: {
+          distance: 400,
+          line_linked: {
+            opacity: 1,
+          },
+        },
+        bubble: {
+          distance: 83.91608391608392,
+          size: 1,
+          duration: 3,
+          opacity: 1,
+          speed: 3,
+        },
+        repulse: {
+          distance: 200,
+          duration: 0.4,
+        },
+        push: {
+          particles_nb: 4,
+        },
+        remove: {
+          particles_nb: 2,
+        },
+      },
+    },
+    retina_detect: true,
+  };
+
+  loadParticles(particleConfig);
+</script>
+
+<div class="hero-container">
+  <div id="particlesWrapper"></div>
+  <div class="py-2 md:py-5">
+    <div>
+      {
+        image && (
+          <div class="relative m-auto max-w-5xl">
+            {typeof image === 'string' ? (
+              <Fragment set:html={image} />
+            ) : (
+              <Image
+                class="mx-auto w-full"
+                sizes="(max-width: 767px) 400px, (max-width: 1023px) 768px, (max-width: 2039px) 1024px, 2040px"
+                loading="eager"
+                width={1024}
+                height={576}
+                {...image}
+              />
+            )}
+          </div>
+        )
+      }
+    </div>
+    <div class="text-center pb-10 md:pb-16 max-w-5xl mx-auto relative">
+      {
+        title && (
+          <h1
+            class="typewriter text-white text-3xl md:text-5xl font-bold leading-tighter tracking-tighter mb-4 font-heading dark:text-gray-200"
+            set:html={title}
+          />
+        )
+      }
+      <div class="max-w-3xl mx-auto mt-10">
         {
-          image && (
-            <div class="relative m-auto max-w-5xl">
-              {typeof image === 'string' ? (
-                <Fragment set:html={image} />
+          actions && (
+            <div class="max-w-xs sm:max-w-md m-auto flex flex-nowrap flex-col sm:flex-row sm:justify-center gap-4">
+              {Array.isArray(actions) ? (
+                actions.map((action) => (
+                  <div class="flex w-full sm:w-auto">
+                    <Button {...(action || {})} class="w-full sm:mb-0" />
+                  </div>
+                ))
               ) : (
-                <Image
-                  class="mx-auto rounded-md w-full"
-                  widths={[400, 768, 1024, 2040]}
-                  sizes="(max-width: 767px) 400px, (max-width: 1023px) 768px, (max-width: 2039px) 1024px, 2040px"
-                  loading="eager"
-                  width={1024}
-                  height={576}
-                  {...image}
-                />
+                <Fragment set:html={actions} />
               )}
             </div>
           )
         }
       </div>
-      <div class="text-center pb-10 md:pb-16 max-w-5xl mx-auto">
-        {
-          title && (
-            <h1
-              class="text-5xl md:text-6xl font-bold leading-tighter tracking-tighter mb-4 font-heading dark:text-gray-200"
-              set:html={title}
-            />
-          )
-        }
-        <div class="max-w-3xl mx-auto">
-          {subtitle && <p class="text-xl text-muted mb-6 dark:text-slate-300" set:html={subtitle} />}
-          {
-            actions && (
-              <div class="max-w-xs sm:max-w-md m-auto flex flex-nowrap flex-col sm:flex-row sm:justify-center gap-4">
-                {Array.isArray(actions) ? (
-                  actions.map((action) => (
-                    <div class="flex w-full sm:w-auto">
-                      <Button {...(action || {})} class="w-full sm:mb-0" />
-                    </div>
-                  ))
-                ) : (
-                  <Fragment set:html={actions} />
-                )}
-              </div>
-            )
-          }
-        </div>
-        {content && <Fragment set:html={content} />}
-      </div>
-      
     </div>
   </div>
-</section>
+</div>
+
+<style>
+  .hero-container {
+    width: 100vw;
+    position: relative;
+  }
+
+  #particlesWrapper {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    background-color: #071d34;
+  }
+
+  .typewriter {
+    overflow: hidden; /* Ensures the content is not revealed until the animation */
+    border-right: 0.15em solid orange; /* The typwriter cursor */
+    margin-left: auto; /* Gives that scrolling effect as the typing happens */
+    margin-right: auto; /* Gives that scrolling effect as the typing happens */
+    line-height: 1.5;
+    white-space: nowrap;
+    animation:
+      typing 3.5s steps(30, end),
+      blink-caret 0.5s step-end infinite;
+  }
+
+  /* The typing effect */
+  @keyframes typing {
+    from {
+      width: 0;
+    }
+    to {
+      width: 100%;
+    }
+  }
+
+  /* The typewriter cursor effect */
+  @keyframes blink-caret {
+    from,
+    to {
+      border-color: transparent;
+    }
+    50% {
+      border-color: #fff;
+    }
+  }
+
+  @media only screen and (max-width: 576px) {
+    .typewriter {
+      animation: none;
+      border: none;
+      white-space: break-spaces;
+    }
+  }
+</style>
