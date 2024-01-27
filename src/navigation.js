@@ -149,7 +149,7 @@ export const footerData = {
     },
   ],
   secondaryLinks: [
-    { text: 'Terms', href: getPermalink('/terms') },
+    { text: 'Terms & Conditions', href: getPermalink('/terms') },{},
     { text: 'Privacy Policy', href: getPermalink('/privacy') },
   ],
   socialLinks: [
@@ -160,6 +160,6 @@ export const footerData = {
   ],
   footNote: `
     <span class="w-5 h-5 md:w-6 md:h-6 md:-mt-0.5 bg-cover mr-1.5 rtl:mr-0 rtl:ml-1.5 float-left rtl:float-right rounded-sm bg-[url(src/assets/images/logo.png)]"></span>
-     © 2018 Axen. All Rights Reserved.
+     © 2018 Axen. All Rights Reserved
   `,
 };
