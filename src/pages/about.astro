@@ -1,10 +1,10 @@
 ---
 import Features2 from '~/components/widgets/Features2.astro';
-import Features3 from '~/components/widgets/Features3.astro';
 import Hero2 from '~/components/widgets/Hero2.astro';
 import Stats from '~/components/widgets/Stats.astro';
-import Steps2 from '~/components/widgets/Steps2.astro';
+import Image from '~/components/common/Image.astro';
 import Layout from '~/layouts/PageLayout.astro';
+import CallToAction from '~/components/widgets/CallToAction.astro';
 
 const metadata = {
   title: 'About us',
@@ -17,19 +17,22 @@ const metadata = {
   <Hero2
     tagline="About us"
     image={{
-      src: 'https://images.unsplash.com/photo-1559136555-9303baea8ebd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
-      alt: 'Caos Image',
+      src: 'https://images.unsplash.com/photo-1530036846422-afb4b7af2fd4?q=80&w=2127&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+      alt: 'About us banner',
     }}
   >
     <Fragment slot="title">
       Elevate your online presence with our <br />
-      <span class="text-accent dark:text-white highlight"> Beautiful Website Templates</span>
+      <span class="text-accent dark:text-white highlight"> Tailored services</span>
     </Fragment>
 
     <Fragment slot="subtitle">
-      Donec efficitur, ipsum quis congue luctus, mauris magna convallis mauris, eu auctor nisi lectus non augue. Donec
-      quis lorem non massa vulputate efficitur ac at turpis. Sed tincidunt ex a nunc convallis, et lobortis nisi tempus.
-      Suspendisse vitae nisi eget tortor luctus maximus sed non lectus.
+      Transform your digital presence with our comprehensive suite of tailored services. From web application
+      development and mobile app creation to strategic digital marketing campaigns, our team crafts customized solutions
+      that prioritize scalability, user-centric design, and cutting-edge technologies. We ensure impeccable quality
+      through rigorous quality assurance processes, and our UI/UX design expertise enhances user engagement. With
+      technical consultation services, we provide expert guidance to optimize your technological infrastructure. Elevate
+      your online presence and achieve impactful results with our holistic and innovative approach to digital solutions.
     </Fragment>
   </Hero2>
 
@@ -46,80 +49,23 @@ const metadata = {
   />
 
   <!-- Features3 Widget ************** -->
+  <div class="relative mx-auto max-w-7xl px-4 md:px-6 py-6 md:py-6 lg:py-10 text-default pt-0 md:pt-0 lg:pt-0">
+    <div aria-hidden="true" class="aspect-w-16 aspect-h-7">
+      <div class="w-full h-80 object-cover rounded-xl mx-auto bg-gray-500 shadow-lg">
+        <Image
+          class="w-full h-80 object-cover object-bottom-important rounded-xl mx-auto bg-gray-500 shadow-lg"
+          width="auto"
+          widths={[400, 768]}
+          style="object-position: bottom"
+          {...{
+            src: 'https://images.unsplash.com/photo-1606857521015-7f9fcf423740?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+            alt: 'Image of people working in a workplace',
+          } as any}
+        />
+      </div>
+    </div>
+  </div>
 
-  <Features3
-    columns={3}
-    isAfterContent={true}
-    items={[
-      {
-        title: 'E-commerce',
-        description:
-          'Rutrum non odio at vehicula. Proin ipsum justo, dignissim in vehicula sit amet, dignissim id quam. Sed ac tincidunt sapien.',
-        icon: 'tabler:template',
-      },
-      {
-        title: 'Work',
-        description:
-          'Nullam efficitur volutpat sem sed fringilla. Suspendisse et enim eu orci volutpat laoreet ac vitae libero.',
-        icon: 'tabler:template',
-      },
-      {
-        title: 'Business',
-        description:
-          'Morbi et elit finibus, facilisis justo ut, pharetra ipsum. Donec efficitur, ipsum quis congue luctus, mauris magna.',
-        icon: 'tabler:template',
-      },
-      {
-        title: 'Branding',
-        description:
-          'Suspendisse vitae nisi eget tortor luctus maximus sed non lectus. Cras malesuada pretium placerat. Nullam venenatis dolor a ante rhoncus.',
-        icon: 'tabler:template',
-      },
-      {
-        title: 'Medical',
-        description:
-          'Vestibulum malesuada lacus id nibh posuere feugiat. Nam volutpat nulla a felis ultrices, id suscipit mauris congue. In hac habitasse platea dictumst.',
-        icon: 'tabler:template',
-      },
-      {
-        title: 'Fashion Design',
-        description:
-          'Maecenas eu tellus eget est scelerisque lacinia et a diam. Aliquam velit lorem, vehicula id fermentum et, rhoncus et purus.',
-        icon: 'tabler:template',
-      },
-    ]}
-    image={{
-      src: 'https://images.unsplash.com/photo-1504384308090-c894fdcc538d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80',
-      alt: 'Colorful Image',
-    }}
-  />
-
-  <!-- Steps2 Widget ****************** -->
-
-  <Steps2
-    title="Our values"
-    subtitle="Maecenas eu tellus eget est scelerisque lacinia et a diam. Aliquam velit lorem, vehicula id fermentum et, rhoncus et purus. Nulla facilisi. Vestibulum malesuada lacus."
-    items={[
-      {
-        title: 'Customer-centric approach',
-        description:
-          'Donec id nibh neque. Quisque et fermentum tortor. Fusce vitae dolor a mauris dignissim commodo. Ut eleifend luctus condimentum.',
-      },
-      {
-        title: 'Constant Improvement',
-        description:
-          'Phasellus laoreet fermentum venenatis. Vivamus dapibus pulvinar arcu eget mattis. Fusce eget mauris leo.',
-      },
-      {
-        title: 'Ethical Practices',
-        description:
-          'Vestibulum imperdiet libero et lectus molestie, et maximus augue porta. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.',
-      },
-    ]}
-  />
-
-
-  <!-- Features2 Widget ************** -->
 
   <Features2
     title="Our locations"
@@ -127,7 +73,7 @@ const metadata = {
     columns={3}
     items={[
       {
-        title: 'United Kingdon',
+        title: 'United Kingdom',
         description: '1234 Lorem Ipsum St, 12345, Miami',
       },
       {
@@ -141,25 +87,83 @@ const metadata = {
     ]}
   />
 
-  <!-- Features2 Widget ************** -->
-
+  <!-- Steps2 Widget ****************** -->
   <Features2
-    title="Technical Support"
-    tagline="Contact us"
-    columns={2}
+    columns={3}
+    title="Shaping Tomorrow's Digital Landscape"
+    subtitle="Our vision is rooted in a commitment to excellence, and our values reflect a dedication to shaping tomorrow's digital landscape."
+    tagline="Vision & Values"
     items={[
       {
-        title: 'Chat with us',
+        title: 'Elevating Our Competitive Edge',
         description:
-          'Integer luctus laoreet libero, auctor varius purus rutrum sit amet. Ut nec molestie nisi, quis eleifend mi.',
-        icon: 'tabler:messages',
+          'Value as our Competitive Advantage: In a dynamic and competitive world, our commitment to delivering unparalleled value sets us apart. We anticipate our clients to demand nothing less than the best, and we exceed those expectations.',
+        icon: 'flat-color-icons:approval',
       },
       {
-        title: 'Call us',
+        title: 'Embracing Change for Progress',
         description:
-          'Mauris faucibus finibus orci, in posuere elit viverra non. In hac habitasse platea dictumst. Cras lobortis metus a hendrerit congue.',
-        icon: 'tabler:headset',
+          "Change Propels Our Momentum: In our realm, change isn't just a constant; it's an opportunity to surge forward. We embrace change as the driving force behind progress, ensuring our journey is marked by continuous evolution and improvement.",
+        icon: 'flat-color-icons:line-chart',
+      },
+      {
+        title: 'A Commitment to Excellence',
+        description:
+          'Innovation in Everything: At the core of our ethos lies an unwavering commitment to innovation. We thrive on the challenge of infusing creativity into every aspect of our work, promising our customers not just quality but constant innovation.',
+        icon: 'flat-color-icons:serial-tasks',
+      },
+      {
+        title: 'Zero Tolerance for Waste',
+        description:
+          "Efficiency as a Standard: Waste has no place in our operations. If we can't deliver, we're upfront about it. Our commitment to efficiency ensures that every effort is purposeful, aligning with our goal to deliver results without unnecessary waste.",
+        icon: 'flat-color-icons:reuse',
+      },
+      {
+        title: 'Transparency and Honesty',
+        description:
+          "Honesty in Communication: Open communication is the foundation of trust. If we can't do it, we won't sugarcoat it. Transparency and honesty guide our interactions, building trust with our clients and partners.",
+        icon: 'flat-color-icons:diploma-1',
+      },
+      {
+        title: 'Client-Centric Approach',
+        description:
+          "Client Expectations as our Compass: Our compass is set by the expectations of our clients. We don't just meet their needs; we anticipate them, ensuring that our services and solutions align with their evolving requirements.",
+        icon: 'flat-color-icons:portrait-mode',
+      },
+      {
+        title: 'Continuous Learning',
+        description:
+          'Growth through Learning: In our journey, stagnation is the enemy. We foster a culture of continuous learning, where each challenge is an opportunity to acquire new skills and knowledge, propelling our collective growth.',
+        icon: 'flat-color-icons:binoculars',
+      },
+      {
+        title: 'Team Synergy',
+        description:
+          "Collaboration for Success: We believe in the strength of collaboration. Our diverse team comes together with a shared commitment to excellence, leveraging each other's strengths to achieve success collectively.",
+        icon: 'flat-color-icons:workflow',
+      },
+      {
+        title: 'Benchmarking Excellence',
+        description:
+          "Measuring against the Best: Our standards are not just internal benchmarks; they're global. We measure ourselves against world-class standards, ensuring that our pursuit of excellence is aligned with the best in the world.",
+        icon: 'flat-color-icons:rating',
       },
     ]}
+  >
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
+    </Fragment>
+  </Features2>
+
+  <!-- Features2 Widget ************** -->
+
+  <CallToAction
+    actions={[{
+      variant: "primary",
+      text: 'Tell us your story',
+      href: '/contact',
+    }]}
+    title="Feeling inspired?"
+    subtitle="Transform your projects, whether in business, design, or education, with our exceptional services. Ready to elevate your business? Contact us now to get started!    "
   />
 </Layout>

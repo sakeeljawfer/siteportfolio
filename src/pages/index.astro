@@ -2,15 +2,11 @@
 import Layout from '~/layouts/PageLayout.astro';
 
 import Hero from '~/components/widgets/Hero.astro';
-import Note from '~/components/widgets/Note.astro';
 import Features from '~/components/widgets/Features.astro';
 import Features2 from '~/components/widgets/Features2.astro';
 import Steps from '~/components/widgets/Steps.astro';
-import Content from '~/components/widgets/Content.astro';
 import WorkLatestPosts from '~/components/widgets/WorkLatestPosts.astro';
 import FAQs from '~/components/widgets/FAQs.astro';
-import Stats from '~/components/widgets/Stats.astro';
-import CallToAction from '~/components/widgets/CallToAction.astro';
 
 const metadata = {
   title: 'Axen - Questioning Limits, Defining Digital',
@@ -35,7 +31,7 @@ const metadata = {
         href: '#features',
       },
     ]}
-    image={{ src: '~/assets/images/hero.png', alt: 'AstroWind Hero Image' }}
+    image={{ src: '~/assets/images/hero.png', alt: 'Axen hero banner spaceman' }}
   >
     <Fragment slot="title">
       Questioning <span class="text-accent dark:text-white highlight"> Limits,</span>
@@ -126,13 +122,13 @@ const metadata = {
         icon: 'tabler:paint',
       },
       {
-        title: 'Deployment!',
+        title: 'Delivery!',
         icon: 'tabler:check',
       },
     ]}
     image={{
       src: 'https://images.unsplash.com/photo-1521737711867-e3b97375f902?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-      alt: 'Steps image',
+      alt: 'Axen workflow image',
     }}
   />
 
@@ -226,12 +222,12 @@ const metadata = {
           "Axen's managing team, consisting of technically strong professionals, oversees remote operations. This includes senior software engineers and a dedicated project manager, ensuring efficient project development.",
       },
       {
-        title: "Why choose Axen",
+        title: "Why choose Axen?",
         description:
           "Axen's global presence and a team of highly skilled experts, complemented by a technically strong managing team, make them a standout choice for clients seeking top-notch services worldwide",
       },
       {
-        title: 'Can team Axen handle projects from any country?',
+        title: 'Can Axen handle projects from any country?',
         description:
           "Absolutely. Axen's IT team is equipped to serve clients globally, leveraging their diverse and international expertise to understand and meet the unique requirements of clients worldwide.",
       },
@@ -246,43 +242,10 @@ const metadata = {
           "Axen, as a versatile digital agency, is proficient in a myriad of projects, addressing diverse needs in the digital landscape. From website development to software engineering, our team caters to a broad spectrum of digital requirements, ensuring tailored solutions for every client.",
       },
       {
-        title: 'How can I collaborate with Axen\'s IT team for my project?',
+        title: 'How can I collaborate with Axen?',
         description:
           "Initiating collaboration with Axen is straightforward. Reach out to their team through the provided emails & channels, and they will guide you through the process, understanding your project needs, and tailoring a solution to meet your specific requirements.",
       },
     ]}
   />
-
-  <!-- Stats Widget ****************** -->
-
-  <!-- <Stats
-    stats={[
-      { title: 'Downloads', amount: '132K' },
-      { title: 'Stars', amount: '24.8K' },
-      { title: 'Forks', amount: '10.3K' },
-      { title: 'Users', amount: '48.4K' },
-    ]}
-  /> -->
-
-  <!-- CallToAction Widget *********** -->
-
-  <!-- <CallToAction
-    actions={[
-      {
-        variant: 'primary',
-        text: 'Get template',
-        href: 'https://github.com/onwidget/astrowind',
-        target: '_blank',
-        icon: 'tabler:download',
-      },
-    ]}
-  > -->
-  <Fragment slot="title">
-    Astro&nbsp;+&nbsp;<br class="block sm:hidden" /><span class="sm:whitespace-nowrap">Tailwind CSS</span>
-  </Fragment>
-
-  <Fragment slot="subtitle">
-    Be very surprised by these huge fake numbers you are seeing on this page. <br class="hidden md:inline" />Don't waste
-    more time! :P
-  </Fragment>
 </Layout>
