@@ -1,8 +1,15 @@
-<span class="self-center ml-2 rtl:ml-0 rtl:mr-2 text-2xl md:text-xl font-bold text-gray-900 whitespace-nowrap dark:text-white">
-  <img
-    class="mx-auto"
-    style={{height: '70px'}}
-    src={'/src/assets/images/logo.svg'}
-    alt={'site logo image'}
+---
+import Image from '~/components/common/Image.astro';
+---
+
+<span
+  class="self-center ml-2 rtl:ml-0 rtl:mr-2 text-2xl md:text-xl font-bold text-gray-900 whitespace-nowrap dark:text-white"
+>
+  <Image
+    width="50px"
+    {...{
+      src: '~/assets/images/logo.svg',
+      alt: 'Axen logo',
+    } as any}
   />
 </span>
