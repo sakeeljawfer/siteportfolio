@@ -3,6 +3,7 @@ import CallToAction from '~/components/widgets/CallToAction.astro';
 import Content from '~/components/widgets/Content.astro';
 import Features2 from '~/components/widgets/Features2.astro';
 import Hero from '~/components/widgets/Hero.astro';
+import Hero2 from '~/components/widgets/Hero2.astro';
 import Testimonials from '~/components/widgets/Testimonials.astro';
 import Layout from '~/layouts/PageLayout.astro';
 
@@ -14,7 +15,7 @@ const metadata = {
 <Layout metadata={metadata}>
   <!-- Hero Widget ******************* -->
 
-  <Hero
+  <Hero2
     tagline="Services"
     title="Elevate your projects with our stunning templates"
     subtitle="Explore our meticulously crafted templates tailored to various industries and purposes. From captivating presentations to functional website designs, we offer the tools you need to succeed."
@@ -213,10 +214,10 @@ const metadata = {
   <CallToAction
     actions={[{
       variant: "primary",
-      text: 'Start exploring',
-      href: '/',
+      text: 'Tell us your story',
+      href: '/contact',
     }]}
-    title="Dive into our template collection"
-    subtitle="Whether you're in business, design, or education, our templates are here to elevate your projects."
+    title="Feeling inspired?"
+    subtitle="Transform your projects, whether in business, design, or education, with our exceptional services. Ready to elevate your business? Contact us now to get started!    "
   />
 </Layout>
