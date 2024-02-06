@@ -123,10 +123,10 @@ export const headerData = {
       text: 'Our services',
       href: getPermalink('/services'),
     },
-    {
-      text: 'Why choose us',
-      href: getPermalink('/whychooseus'),
-    },
+    // {
+    //   text: 'Why choose us',
+    //   href: getPermalink('/whychooseus'),
+    // },
     {
       text: 'Contact us',
       href: getPermalink('/contact'),
@@ -138,21 +138,33 @@ export const headerData = {
 export const footerData = {
   links: [
     {
-      title: 'Sitemap',
+      title: 'Company',
       links: [
         { text: 'About us', href: '/about' },
         { text: 'Our work', href: '/work' },
         { text: 'Our services', href: '/services' },
-        { text: 'Why Choose us', href: '/pricing' },
         { text: 'Contact us', href: '/contact' },
       ],
     },
+    {
+      title: 'Services',
+      links: [
+        { text: 'Software Development', href: '/services' },
+        { text: 'Digital Marketing', href: '/services' },
+        { text: 'Quality Assurance', href: '/services' },
+        { text: 'UI/UX Designing', href: '/services' },
+        { text: 'Technical Consultation', href: '/services' },
+      ],
+    },
   ],
+  
   secondaryLinks: [
     { text: 'Terms & Conditions', href: getPermalink('/terms') },{},
     { text: 'Privacy Policy', href: getPermalink('/privacy') },
   ],
+
   socialLinks: [
+    {text: 'Lets Talk → '},
     { ariaLabel: 'X', icon: 'tabler:brand-x', href: '#' },
     { ariaLabel: 'Instagram', icon: 'tabler:brand-instagram', href: '#' },
     { ariaLabel: 'Facebook', icon: 'tabler:brand-facebook', href: '#' },
@@ -160,6 +172,6 @@ export const footerData = {
   ],
   footNote: `
     <span class="w-5 h-5 md:w-6 md:h-6 md:-mt-0.5 bg-cover mr-1.5 rtl:mr-0 rtl:ml-1.5 float-left rtl:float-right rounded-sm bg-[url(https://res.cloudinary.com/quadrate/image/upload/v1706813825/logo_uz2592.png)]"></span>
-     © 2018 Axen. All Rights Reserved
+    Copyrights © 2018 Axen. All Rights Reserved
   `,
 };
