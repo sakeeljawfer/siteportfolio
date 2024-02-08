@@ -112,15 +112,19 @@ export const headerData = {
     //   ],
     // },
     {
+      text: 'Home',
+      href: getPermalink('/'),
+    },
+    {
       text: 'About us',
       href: getPermalink('/about'),
     },
     {
-      text: 'Our work',
+      text: 'Portfolio',
       href: getWorkPermalink(),
     },
     {
-      text: 'Our services',
+      text: 'Services',
       href: getPermalink('/services'),
     },
     // {
@@ -168,10 +172,9 @@ export const footerData = {
     { ariaLabel: 'X', icon: 'tabler:brand-x', href: '#' },
     { ariaLabel: 'Instagram', icon: 'tabler:brand-instagram', href: '#' },
     { ariaLabel: 'Facebook', icon: 'tabler:brand-facebook', href: '#' },
-    { ariaLabel: 'Github', icon: 'tabler:brand-github', href: 'https://github.com/onwidget/astrowind' },
   ],
   footNote: `
-    <span class="w-5 h-5 md:w-6 md:h-6 md:-mt-0.5 bg-cover mr-1.5 rtl:mr-0 rtl:ml-1.5 float-left rtl:float-right rounded-sm bg-[url(https://res.cloudinary.com/quadrate/image/upload/v1706813825/logo_uz2592.png)]"></span>
-    Copyrights © 2018 Axen. All Rights Reserved
+    <span class="w-5 h-5 md:w-6 md:h-6 md:-mt-0.5 bg-cover mr-1.5 rtl:mr-0 rtl:ml-1.5 float-left rtl:float-right rounded-sm"></span>
+    Copyrights © 2024 Axen. All Rights Reserved
   `,
 };
