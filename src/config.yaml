@@ -1,6 +1,6 @@
 site:
   name: Axen
-  site: 'https://astrowind.vercel.app'
+  site: 'https://axendigital.co.uk'
   base: '/'
   trailingSlash: false
 
