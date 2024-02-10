@@ -153,7 +153,7 @@ const {
               <Fragment set:html={image} />
             ) : (
               <Image
-                class="mx-auto w-full"
+                class="mx-auto w-full floater"
                 sizes="(max-width: 767px) 400px, (max-width: 1023px) 768px, (max-width: 2039px) 1024px, 2040px"
                 loading="eager"
                 width={1024}
@@ -249,5 +249,31 @@ const {
       border: none;
       white-space: break-spaces;
     }
+  }
+
+  .floater {
+    animation: floatAnimation 3s ease-in-out infinite;
+  }
+
+  @keyframes floatAnimation {
+    0%,
+    100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-25px);
+    }
+  }
+
+  @media only screen and (max-width: 767px) {
+    @keyframes floatAnimation {
+    0%,
+    100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(25px);
+    }
+  }
   }
 </style>
