@@ -6,6 +6,7 @@ tags:
   - Wordpress CMS
   - Google Analytics
   - Javascript
+  - Angular
 ---
 
 ## Website built with Angular + Wordpress CMS as a showcase of integrating 2 polar technologies.
