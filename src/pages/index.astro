@@ -5,12 +5,12 @@ import Hero from '~/components/widgets/Hero.astro';
 import Features from '~/components/widgets/Features.astro';
 import Features2 from '~/components/widgets/Features2.astro';
 import Steps from '~/components/widgets/Steps.astro';
-import WorkLatestPosts from '~/components/widgets/WorkLatestPosts.astro';
 import FAQs from '~/components/widgets/FAQs.astro';
 
 const metadata = {
   title: 'Axen - Questioning Limits, Defining Digital',
   ignoreTitleTemplate: true,
+  
 };
 ---
 
@@ -28,7 +28,7 @@ const metadata = {
       {
         variant: 'bg',
         text: 'Our services',
-        href: '#features',
+        href: '/services',
       },
     ]}
     image={{ src: '~/assets/images/herohd.png', alt: 'Axen hero banner spaceman' }}
@@ -36,16 +36,6 @@ const metadata = {
     <Fragment slot="title">
       Questioning <span class="text-accent dark:text-white highlight"> Limits,</span>
       Defining <span class="text-accent dark:text-white highlight"> Digital.</span>
-    </Fragment>
-
-    <Fragment slot="subtitle">
-      <span class="hidden sm:inline">
-        <span class="font-semibold">AstroWind</span> is a free, customizable and production-ready template for Astro 4.0
-        + Tailwind CSS.</span
-      >
-      <span class="block mb-1 sm:hidden font-bold text-blue-600">AstroWind: Production-ready.</span>
-      Suitable for Startups, Small Business, SaaS websites, Professional Portfolios, Marketing websites, Landing Pages &
-      Works.
     </Fragment>
   </Hero>
 
@@ -92,10 +82,10 @@ const metadata = {
         icon: 'tabler:devices',
       },
       {
-        title: 'Technical Consultation',
+        title: 'Point of Sales',
         description:
-          'Our Technical Consultation services offer expert guidance and solutions tailored to your needs. We provide insightful advice, strategic planning, and innovative approaches to optimize your technological infrastructure.',
-        icon: 'tabler:bulb',
+          'Our POS Systems are tailored to meet the diverse needs of businesses. Whether you run a small retail store or a large enterprise, we offer customizable POS solutions that cater to your specific requirements. Our expertise lies in crafting unique point of sale systems to optimize and streamline transactions for businesses of all sizes.',
+        icon: 'tabler:credit-card',
       },
     ]}
   />
