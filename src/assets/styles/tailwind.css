@@ -38,7 +38,7 @@
   }
 }
 
-body, body p, body li {
+body, body p {
   font-size: var(--body-font-size);
 }
 
