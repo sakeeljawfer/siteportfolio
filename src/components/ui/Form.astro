@@ -3,9 +3,38 @@ import type { Form } from '~/types';
 import Button from '~/components/ui/Button.astro';
 
 const { inputs, textarea, disclaimer, button = 'Contact us', description = '' } = Astro.props as Form;
+
+
 ---
 
-<form action="https://formspree.io/f/moqgvewe" method="POST">
+<script>
+    var form = document.getElementById("axenContactForm") as any;
+    async function handleSubmit(event) {
+      // SHOW LOADER HERE
+      event.preventDefault();
+      var data = new FormData(event.target);
+      fetch(event.target.action, {
+        method: form.method,
+        body: data,
+        headers: {
+            'Accept': 'application/json'
+        }
+      }).then(response => {
+        if (response.ok) {
+          form.reset()
+        } else {
+          // TODO: SHOW RESONSE AS A SUCCESS MOTIFICATION
+        }
+      }).catch(() => {
+        // TODO: SHOW ERROR NOTIFICATION
+      }).finally(() => {
+        // TODO: HIDE LOADER
+      });
+    }
+    form.addEventListener("submit", handleSubmit);
+</script>
+
+<form id="axenContactForm" action="https://formspree.io/f/moqgvewe" method="POST">
   {
     inputs &&
       inputs.map(
