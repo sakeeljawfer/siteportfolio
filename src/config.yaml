@@ -18,7 +18,7 @@ metadata:
   openGraph:
     site_name: Axen
     images:
-      - url: '~/assets/images/logo.png'
+      - url: '~/assets/images/axen-logo-h.png'
         width: 1200
         height: 628
     type: website
