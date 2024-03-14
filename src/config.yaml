@@ -11,7 +11,7 @@ metadata:
   title:
     default: Axen
     template: '%s — Axen'
-  description: "Axen | Questioning Limits, Defining Digital. Top notch services we provide for your business "
+  description: "Questioning Limits, Defining Digital. Top notch services we provide for your business "
   robots:
     index: true
     follow: true
