@@ -11,7 +11,8 @@ metadata:
   title:
     default: Axen
     template: '%s — Axen'
-  description: "Questioning Limits, Defining Digital. Top notch services we provide for your business "
+  description: "AXEN stands tall as the preeminent software development company, spanning across Sri Lanka, Australia, UK, USA offering unparalleled expertise in Web Design, E-Commerce Mastery, Graphic Designing, and Expert Marketing.
+   We are your comprehensive Digital Partner, committed to your triumph in the online sphere!"
   robots:
     index: true
     follow: true
