@@ -1,0 +1,157 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+import Image from '~/components/common/Image.astro';
+import { getCollection } from 'astro:content';
+import { SITE } from '~/utils/config';
+
+export async function getStaticPaths() {
+  const services = await getCollection('services');
+  return services.map((entry) => ({ params: { slug: entry.slug }, props: { entry } }));
+}
+
+const { entry } = Astro.props;
+const { title, description, intro, benefits, process, examples = [], hero } = entry.data;
+const canonical = new URL(`/services/${entry.slug}`, Astro.site).toString();
+
+const metadata = {
+  title: `${title} | Axen`,
+  description,
+  canonical,
+  openGraph: {
+    url: canonical,
+    images: hero?.image
+      ? [
+          {
+            url: hero.image,
+            width: 1200,
+            height: 628,
+          },
+        ]
+      : [],
+  },
+};
+
+const breadcrumbItems = [
+  { label: 'Home', href: '/' },
+  { label: 'Services', href: '/services' },
+  { label: title, href: `/services/${entry.slug}` },
+];
+
+const serviceJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  name: title,
+  description,
+  provider: {
+    '@type': 'Organization',
+    name: SITE.name,
+    url: SITE.site,
+  },
+  areaServed: 'Worldwide',
+  serviceType: title,
+};
+
+const breadcrumbJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: breadcrumbItems.map((item, index) => ({
+    '@type': 'ListItem',
+    position: index + 1,
+    name: item.label,
+    item: new URL(item.href, Astro.site).toString(),
+  })),
+};
+---
+
+<Layout metadata={metadata}>
+  <section class="mx-auto max-w-6xl px-4 md:px-6 py-10 md:py-16 text-default" data-reveal>
+    <nav aria-label="Breadcrumb" class="text-xs uppercase tracking-[0.25em] text-muted">
+      <ol class="flex flex-wrap items-center gap-2">
+        {breadcrumbItems.map((item, index) => (
+          <li class="flex items-center gap-2">
+            <a class="hover:text-primary transition-colors" href={item.href}>{item.label}</a>
+            {index < breadcrumbItems.length - 1 ? <span class="opacity-50">/</span> : null}
+          </li>
+        ))}
+      </ol>
+    </nav>
+
+    <div class="mt-8 grid gap-10 lg:grid-cols-[1.2fr_0.8fr] lg:items-center">
+      <div class="space-y-5">
+        <h1 class="text-4xl md:text-5xl font-bold leading-tight text-heading">{title}</h1>
+        <p class="text-lg text-muted">{intro}</p>
+        <div class="flex flex-wrap gap-3">
+          <a class="btn-primary" href="/contact">Request a proposal</a>
+          <a class="btn-secondary" href="/services">Back to services</a>
+        </div>
+      </div>
+      {hero?.image ? (
+        <div class="card shadow-brand p-4" data-reveal>
+          <Image src={hero.image} alt={hero.imageAlt ?? title} width={560} height={420} class="rounded-xl" />
+        </div>
+      ) : null}
+    </div>
+  </section>
+
+  <section class="mx-auto max-w-6xl px-4 md:px-6 pb-12 md:pb-16" data-reveal>
+    <h2 class="text-2xl md:text-3xl font-semibold text-heading">Key benefits</h2>
+    <div class="mt-8 grid gap-6 md:grid-cols-3">
+      {benefits.map((benefit) => (
+        <div class="card shadow-brand p-6">
+          <h3 class="text-lg font-semibold text-heading">{benefit.title}</h3>
+          <p class="mt-3 text-sm text-muted">{benefit.description}</p>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <section class="mx-auto max-w-6xl px-4 md:px-6 pb-12 md:pb-16" data-reveal>
+    <h2 class="text-2xl md:text-3xl font-semibold text-heading">How we deliver</h2>
+    <ol class="mt-8 grid gap-6 md:grid-cols-2">
+      {process.map((step, index) => (
+        <li class="card shadow-brand p-6">
+          <p class="text-xs uppercase tracking-[0.3em] text-muted">Step {index + 1}</p>
+          <h3 class="mt-3 text-lg font-semibold text-heading">{step.title}</h3>
+          <p class="mt-3 text-sm text-muted">{step.description}</p>
+        </li>
+      ))}
+    </ol>
+  </section>
+
+  <section class="mx-auto max-w-6xl px-4 md:px-6 pb-16" data-reveal>
+    <h2 class="text-2xl md:text-3xl font-semibold text-heading">Recent outcomes</h2>
+    <div class="mt-8 grid gap-6 md:grid-cols-2">
+      {examples.map((example) => (
+        <div class="card shadow-brand p-6">
+          <h3 class="text-lg font-semibold text-heading">{example.title}</h3>
+          <p class="mt-3 text-sm text-muted">{example.description}</p>
+          {example.result ? (
+            <p class="mt-4 text-sm font-semibold text-primary">{example.result}</p>
+          ) : null}
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <section class="mx-auto max-w-6xl px-4 md:px-6 pb-20" data-reveal>
+    <div class="rounded-3xl border border-slate-200/80 bg-primary/10 p-8 md:p-12 shadow-brand">
+      <div class="flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
+        <div>
+          <h2 class="text-2xl md:text-3xl font-semibold text-heading">Ready to get started with {title}?</h2>
+          <p class="mt-3 text-muted">Share your goals and we’ll outline the next steps.</p>
+        </div>
+        <div class="flex flex-wrap gap-3">
+          <a class="btn-primary" href="/contact">Start a project</a>
+          <a class="btn-secondary" href="/services">Explore all services</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script type="application/ld+json">
+    {JSON.stringify(serviceJsonLd)}
+  </script>
+  <script type="application/ld+json">
+    {JSON.stringify(breadcrumbJsonLd)}
+  </script>
+</Layout>

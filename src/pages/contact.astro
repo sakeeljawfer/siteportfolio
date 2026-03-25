@@ -12,58 +12,64 @@ const metadata = {
 <Layout metadata={metadata}>
   <!-- HeroText Widget ******************* -->
 
-  <HeroText tagline="Contact" title="Let's Connect!" />
+  <section data-reveal class="section-divider">
+    <HeroText tagline="Contact" title="Let's Connect!" />
+  </section>
 
-  <ContactUs
-    title="Drop us a message today!"
-    subtitle="Eager to embark on a project together? Fill out our contact form on the Axen website, and let's turn your vision into reality. Our dedicated team is ready to discuss your project and transform ideas into impactful solutions. Take the first step towards a successful collaboration with us!"
-    inputs={[
-      {
-        type: 'text',
-        name: 'name',
-        label: 'Name',
-      },
-      {
-        type: 'email',
-        name: 'email',
-        label: 'Email',
-      },
-      {
-        type: 'tel',
-        name: 'phone',
-        label: 'Phone',
-      },
-    ]}
-    textarea={{
-      label: 'Message',
-    }}
-    disclaimer={{
-      label:
-        'By submitting this contact form, you acknowledge and agree to the collection of your personal information.',
-    }}
-    description="Our support team typically responds within 24 business hours."
-  />
+  <section data-reveal class="section-divider">
+    <ContactUs
+      title="Drop us a message today!"
+      subtitle="Eager to embark on a project together? Fill out our contact form on the Axen website, and let's turn your vision into reality. Our dedicated team is ready to discuss your project and transform ideas into impactful solutions. Take the first step towards a successful collaboration with us!"
+      inputs={[
+        {
+          type: 'text',
+          name: 'name',
+          label: 'Name',
+        },
+        {
+          type: 'email',
+          name: 'email',
+          label: 'Email',
+        },
+        {
+          type: 'tel',
+          name: 'phone',
+          label: 'Phone',
+        },
+      ]}
+      textarea={{
+        label: 'Message',
+      }}
+      disclaimer={{
+        label:
+          'By submitting this contact form, you acknowledge and agree to the collection of your personal information.',
+      }}
+      description="Our support team typically responds within 24 business hours."
+    />
+  </section>
 
   <!-- Features2 Widget ************** -->
 
-  <Features2
-    title="We are here to help!"
-    items={[
-      {
-        title: 'Phone',
-        description: '+44 7596 216827',
-        icon: 'tabler:brand-whatsapp',
-      },
-      {
-        title: 'Email',
-        description: 'admin@axendigital.co.uk',
-        icon: 'tabler:mail',
-      },
-      {
-        title: 'Location',
-        description: 'No. 78, Queens Gate, 2 Lord Street, Watford, WD17 2LQ, United Kingdom',
-        icon: 'tabler:map-pin',
-      },
-    ]}
-  />
+  <section data-reveal class="section-divider">
+    <Features2
+      title="We are here to help!"
+      items={[
+        {
+          title: 'Phone',
+          description: '+44 7596 216827',
+          icon: 'tabler:brand-whatsapp',
+        },
+        {
+          title: 'Email',
+          description: 'admin@axendigital.co.uk',
+          icon: 'tabler:mail',
+        },
+        {
+          title: 'Location',
+          description: 'No. 78, Queens Gate, 2 Lord Street, Watford, WD17 2LQ, United Kingdom',
+          icon: 'tabler:map-pin',
+        },
+      ]}
+    />
+  </section>
 </Layout>

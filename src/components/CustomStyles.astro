@@ -1,5 +1,6 @@
 ---
-import '@fontsource-variable/inter';
+import '@fontsource-variable/manrope';
+import '@fontsource/sora';
 
 // 'DM Sans'
 // Nunito
@@ -21,39 +22,41 @@ import '@fontsource-variable/inter';
 
 <style is:inline is:global>
   :root {
-    --aw-font-sans: 'Inter Variable';
+    --aw-font-sans: 'Manrope Variable';
     --aw-font-serif: var(--aw-font-sans);
-    --aw-font-heading: var(--aw-font-sans);
+    --aw-font-heading: 'Sora';
 
     --aw-color-primary: rgb(19 76 132);
-    --aw-color-secondary: rgb(19 76 132);
-    --aw-color-accent: rgb(60, 181, 176);
+    --aw-color-secondary: rgb(10 58 96);
+    --aw-color-accent: rgb(60 181 176);
 
-    --aw-color-text-heading: rgb(0 0 0); 
-    --aw-color-text-default: rgb(16 16 16);
-    --aw-color-text-muted: rgb(16 16 16 / 66%);
-    --aw-color-bg-page: rgb(255 255 255);
+    --aw-color-text-heading: rgb(29 29 31);
+    --aw-color-text-default: rgb(29 29 31);
+    --aw-color-text-page: rgb(29 29 31);
+    --aw-color-text-muted: rgb(110 110 115);
+    --aw-color-bg-page: rgb(245 245 247);
 
     --aw-color-bg-page-dark: rgb(3 6 32);
     --body-font-size: 16px;
 
-    ::selection {background-color: lavender;}
+    ::selection {background-color: rgba(60, 181, 176, 0.25);}
 
     
 
   }
 
   .dark {
-    --aw-font-sans: 'Inter Variable';
+    --aw-font-sans: 'Manrope Variable';
     --aw-font-serif: var(--aw-font-sans);
-    --aw-font-heading: var(--aw-font-sans);
+    --aw-font-heading: 'Sora';
 
     --aw-color-primary: rgb(30 64 175);
     --aw-color-secondary: rgb(30 58 138);
     --aw-color-accent: rgb(109 40 217);
 
-    --aw-color-text-heading: rgb(0 0 0); 
+    --aw-color-text-heading: rgb(248 250 252);
     --aw-color-text-default: rgb(229 236 246);
+    --aw-color-text-page: rgb(229 236 246);
     --aw-color-text-muted: rgb(229 236 246 / 66%);
     --aw-color-bg-page: var(--aw-color-bg-page-dark);
 

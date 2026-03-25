@@ -1,10 +1,11 @@
 ---
 import CallToAction from '~/components/widgets/CallToAction.astro';
-import Content from '~/components/widgets/Content.astro';
-import Features2 from '~/components/widgets/Features2.astro';
 import Hero2 from '~/components/widgets/Hero2.astro';
-import Testimonials from '~/components/widgets/Testimonials.astro';
 import Layout from '~/layouts/PageLayout.astro';
+import { getCollection } from 'astro:content';
+import ServiceTiles from '~/components/widgets/ServiceTiles.astro';
+
+const services = await getCollection('services');
 
 const metadata = {
   title: 'Services',
@@ -14,155 +15,66 @@ const metadata = {
 <Layout metadata={metadata}>
   <!-- Hero Widget ******************* -->
 
-  <Hero2
-    tagline="Services"
+  <section data-reveal class="section-divider">
+    <Hero2
+      tagline="Services"
     image={{
-      src: 'https://res.cloudinary.com/quadrate/image/upload/v1706814339/pngegg_wltink.png',
+      src: 'https://images.unsplash.com/photo-1519389950473-47ba0277781c?q=80&w=2000&auto=format&fit=crop',
       alt: 'Our Services',
     }}
   >
-    <Fragment slot="title">
-      Elevate your online presence with our <br />
-      <span class="text-accent dark:text-white highlight"> Tailored services</span>
-    </Fragment>
+      <Fragment slot="title">
+        Elevate your online presence with our <br />
+        <span class="text-accent dark:text-white highlight"> Tailored services</span>
+      </Fragment>
 
-    <Fragment slot="subtitle">
-      Revitalize your digital landscape with our tailored suite of services. From web and mobile app development to
-      strategic digital marketing, we specialize in scalable solutions, user-centric design, and cutting-edge
-      technologies. Our commitment to impeccable quality is reinforced through rigorous QA processes, while our UI/UX
-      expertise enhances user engagement. With technical consultation services, we offer expert guidance to optimize
-      your technological infrastructure. Elevate your online presence and achieve impactful results through our holistic
-      and innovative digital solutions
-    </Fragment>
-  </Hero2>
-  <!-- Features2 Widget ************** -->
-
-  <Features2
-    title="Service Beyond Standards | Elevating Your Software Experience"
-    subtitle="Where Projects Thrive, Turning Ideas into Impeccable Software Solutions"
-    columns={3}
-    items={[
-      {
-        title: 'Web Application Development',
-        description:
-          'From planning to implementation, we create customized, scalable applications that leverage a variety of technologies and skilled coding to deliver creative, user-friendly solutions.',
-        icon: 'tabler:world-www',
-      },
-      {
-        title: 'Mobile App Development',
-        description:
-          'Design and build custom, user-centric applications with us for various platforms, ensuring seamless functionality, intuitive interfaces, and integrate cutting-edge technologies for optimal user experiences.',
-        icon: 'tabler:device-mobile-code',
-      },
-      {
-        title: 'Digital Marketing',
-        description:
-          'We craft strategic digital marketing campaigns, leveraging data-driven insights and creative expertise to drive brand growth, engagement, and conversions across diverse online channels for impactful results.',
-        icon: 'tabler:speakerphone',
-      },
-      {
-        title: 'Quality Assurance',
-        description:
-          'Our Quality Assurance services meticulously test and validate software, ensuring impeccable functionality, performance, and reliability. We employ rigorous methodologies to guarantee optimal user experiences and product excellence.',
-        icon: 'tabler:zoom-code',
-      },
-      {
-        title: 'Point of Sale (POS)',
-        description:
-          'Our POS Systems are tailored to meet the diverse needs of businesses. Whether you run a small retail store or a large enterprise, we offer customizable POS solutions that cater to your specific requirements. Our expertise lies in crafting unique point of sale systems to optimize and streamline transactions for businesses of all sizes.',
-        icon: 'tabler:credit-card',
-      },
-      {
-        title: 'UI/UX Designing',
-        description:
-          'We specialize in creating intuitive and visually appealing interfaces that improve user engagement. Our UI/UX services blend design and functionality for seamless, engaging, and delightful digital interactions.',
-        icon: 'tabler:devices',
-      },
-      {
-        title: 'Technical Consultation',
-        description:
-          'Our Technical Consultation services offer expert guidance and solutions tailored to your needs. We provide insightful advice, strategic planning, and innovative approaches to optimize your technological infrastructure.',
-        icon: 'tabler:bulb',
-      },
-    ]}
-  />
-
-  <!-- Content Widget **************** -->
-
-  <Content
-    isReversed
-    items={[
-      {
-        title: 'Ongoing Workforce Training',
-        description: 'Axen places a strong emphasis on the continuous development of its workforce.',
-        icon: 'tabler:wand',
-      },
-      {
-        title: 'Strategic Methodology Alignment',
-        description:
-          "Axen adopts a well-structured methodology to align its processes seamlessly with the client's objectives.",
-        icon: 'tabler:settings',
-      },
-      {
-        title: 'Unwavering Attention to Detail and Quality',
-        description:
-          'An iterative process involves continuous demonstration to the client, allowing for real-time improvements until the client is fully satisfied, showcasing our commitment to delivering high-quality solutions.',
-        icon: 'tabler:presentation',
-      },
-      {
-        title: 'Client-Centric Iterative Development',
-        description: 'Through iterative demonstrations and constant refinement.',
-        icon: 'tabler:carousel-horizontal',
-      },
-    ]}
-    image={{
-      src: 'https://res.cloudinary.com/quadrate/image/upload/v1707416633/istockphoto-1346368893-612x612_r7n7le.jpg',
-      alt: 'Features Image',
-    }}
-  >
-    <Fragment slot="content">
-      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">How Axen does it</h3>
-    </Fragment>
-  </Content>
-
-  <!-- Testimonials Widget *********** -->
-
-  <Testimonials
-    title="Words from Our Customers"
-    testimonials={[
-      {
-        testimonial:
-          'Renting short-term apartments in Watford has never been this seamless! Thanks to Axen, their visually stunning and professionally crafted designs have not only saved me valuable time but have also transformed my website into a powerful tool for making lasting impressions on clients.',
-        name: 'Rinas',
-        job: 'Proprietor',
-        image: {
-          src: 'https://images.unsplash.com/photo-1618835962148-cf177563c6c0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=930&q=80',
-          alt: 'Emily Kennedy Image',
-        },
-      },
-      {
-        testimonial: `I am thrilled to commend Axen for their outstanding work in crafting the perfect online hub for our Shotokan Karate Union classes. The website's design seamlessly encapsulates the spirit of Shotokan Karate, reflecting our values and commitment to martial arts excellence.`,
-        name: 'Waseem',
-        job: 'Sensei - Lead Trainer',
-        image: {
-          src: 'https://images.unsplash.com/photo-1561406636-b80293969660?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80',
-          alt: 'Sarah Hansen Image',
-        },
-      },
-    ]}
-  />
+      <Fragment slot="subtitle">
+        Revitalize your digital landscape with our tailored suite of services. From web and mobile app development to
+        strategic digital marketing, we specialize in scalable solutions, user-centric design, and cutting-edge
+        technologies. Our commitment to impeccable quality is reinforced through rigorous QA processes, while our UI/UX
+        expertise enhances user engagement. With technical consultation services, we offer expert guidance to optimize
+        your technological infrastructure. Elevate your online presence and achieve impactful results through our holistic
+        and innovative digital solutions
+      </Fragment>
+    </Hero2>
+  </section>
+  <section data-reveal class="section-divider">
+    <ServiceTiles
+      title="Explore our core services"
+      subtitle="Each service has a dedicated page with tailored outcomes, process details, and example results."
+      items={services.map((service) => ({
+        title: service.data.title,
+        description: service.data.description,
+        href: `/services/${service.slug}`,
+        icon: {
+          'web-development': 'tabler:browser',
+          'web-app-development': 'tabler:world-www',
+          'mobile-app-development': 'tabler:device-mobile-code',
+          'digital-marketing': 'tabler:speakerphone',
+          'seo-optimization': 'tabler:search',
+          'ui-ux-design': 'tabler:palette',
+          'quality-assurance': 'tabler:zoom-code',
+          msp: 'tabler:server',
+          pos: 'tabler:credit-card',
+          'technical-consultation': 'tabler:bulb',
+        }[service.slug],
+      }))}
+    />
+  </section>
 
   <!-- CallToAction Widget *********** -->
 
-  <CallToAction
-    actions={[
-      {
-        variant: 'primary',
-        text: 'Tell us your story',
-        href: '/contact',
-      },
-    ]}
-    title="Feeling inspired?"
-    subtitle="Transform your projects, whether in business, design, or education, with our exceptional services. Ready to elevate your business? Contact us now to get started!    "
-  />
+  <section data-reveal class="section-divider">
+    <CallToAction
+      actions={[
+        {
+          variant: 'primary',
+          text: 'Tell us your story',
+          href: '/contact',
+        },
+      ]}
+      title="Feeling inspired?"
+      subtitle="Transform your projects, whether in business, design, or education, with our exceptional services. Ready to elevate your business? Contact us now to get started!    "
+    />
+  </section>
 </Layout>

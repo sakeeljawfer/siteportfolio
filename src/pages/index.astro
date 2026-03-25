@@ -3,14 +3,30 @@ import Layout from '~/layouts/PageLayout.astro';
 
 import Hero from '~/components/widgets/Hero.astro';
 import Features from '~/components/widgets/Features.astro';
+import ServiceTiles from '~/components/widgets/ServiceTiles.astro';
 import Features2 from '~/components/widgets/Features2.astro';
 import Steps from '~/components/widgets/Steps.astro';
 import FAQs from '~/components/widgets/FAQs.astro';
+import { getCollection } from 'astro:content';
 
 const metadata = {
   title: 'Axen | Leading Software Development Company based in Sri Lanka, Australia, UK, USA',
   ignoreTitleTemplate: true,
   
+};
+
+const services = await getCollection('services');
+const serviceIconMap = {
+  'web-development': 'tabler:browser',
+  'web-app-development': 'tabler:world-www',
+  'mobile-app-development': 'tabler:device-mobile-code',
+  'digital-marketing': 'tabler:speakerphone',
+  'seo-optimization': 'tabler:search',
+  'ui-ux-design': 'tabler:palette',
+  'quality-assurance': 'tabler:zoom-code',
+  msp: 'tabler:server',
+  pos: 'tabler:credit-card',
+  'technical-consultation': 'tabler:bulb',
 };
 ---
 
@@ -45,144 +61,120 @@ const metadata = {
 
   <!-- Features Widget *************** -->
 
-  <Features
-    id="features"
-    tagline="Services"
-    title="Top notch services we provide for your business"
-    subtitle="Elevate Your Enterprise: Unrivaled Solutions Tailored for Your Success"
-    items={[
-      {
-        title: 'Web Application Development',
-        description:
-          'From planning to implementation, we create customized, scalable applications that leverage a variety of technologies and skilled coding to deliver creative, user-friendly solutions.',
-        icon: 'tabler:world-www',
-      },
-      {
-        title: 'Mobile App Development',
-        description:
-          'Design and build custom, user-centric applications with us for various platforms, ensuring seamless functionality, intuitive interfaces, and integrate cutting-edge technologies for optimal user experiences.',
-        icon: 'tabler:device-mobile-code',
-      },
-      {
-        title: 'Digital Marketing',
-        description:
-          'We craft strategic digital marketing campaigns, leveraging data-driven insights and creative expertise to drive brand growth, engagement, and conversions across diverse online channels for impactful results.',
-        icon: 'tabler:speakerphone',
-      },
-      {
-        title: 'Quality Assurance',
-        description:
-          'Our Quality Assurance services meticulously test and validate software, ensuring impeccable functionality, performance, and reliability. We employ rigorous methodologies to guarantee optimal user experiences and product excellence.',
-        icon: 'tabler:zoom-code',
-      },
-      {
-        title: 'UI/UX Designing',
-        description:
-          'We specialize in creating intuitive and visually appealing interfaces that improve user engagement. Our UI/UX services blend design and functionality for seamless, engaging, and delightful digital interactions.',
-        icon: 'tabler:devices',
-      },
-      {
-        title: 'Point of Sales',
-        description:
-          'Our POS Systems are tailored to meet the diverse needs of businesses. Whether you run a small retail store or a large enterprise, we offer customizable POS solutions that cater to your specific requirements. Our expertise lies in crafting unique point of sale systems to optimize and streamline transactions for businesses of all sizes.',
-        icon: 'tabler:credit-card',
-      },
-    ]}
-  />
+  <section data-reveal class="section-divider">
+    <ServiceTiles
+      title="Top notch services we provide for your business"
+      subtitle="Elevate Your Enterprise: Unrivaled Solutions Tailored for Your Success"
+      items={services.map((service) => ({
+        title: service.data.title,
+        description: service.data.description,
+        href: `/services/${service.slug}`,
+        icon: serviceIconMap[service.slug],
+      }))}
+    />
+  </section>
 
-  <Steps
-    title="Embark on a dynamic digital experience with our expert team poised to fulfill your every digital need"
-    items={[
-      {
-        title: 'Step 1: <span class="font-medium">Start here</span>',
-        description:
-          "We pride ourselves on being a versatile team of IT experts, adept at not only listening to customer ideas and suggestions but also crafting innovative, out-of-the-box solutions that simplify and enhance our customers' lives and productivity.",
-        icon: 'tabler:package',
-      },
-      {
-        title: 'Step 2: <span class="font-medium">Brainstorming </em>',
-        description:
-          "Let's embark on a journey to breathe life into your vision! Our first step involves having vibrant conversations with our clients, delving deep into their aspirations and needs. We're not just gathering requirements; we're crafting a symphony of ideas.",
-        icon: 'tabler:letter-case',
-      },
-      {
-        title: 'Step 3: <span class="font-medium">Implementation</span>',
-        description:
-          "Let's shake things up a bit! Dive into the project with modular flair – think of it as building with LEGO bricks, each piece contributing to the grand design. But here's the fun part – we're not keeping it all to ourselves. Nope, we're throwing mini-showcases, demos that dazzle our clients.",
-        icon: 'tabler:paint',
-      },
-      {
-        title: 'Delivery!',
-        icon: 'tabler:check',
-      },
-    ]}
-    image={{
-      src: 'https://images.unsplash.com/photo-1521737711867-e3b97375f902?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-      alt: 'Axen workflow image',
-    }}
-  />
+  <section data-reveal class="section-divider">
+    <Steps
+      title="Embark on a dynamic digital experience with our expert team poised to fulfill your every digital need"
+      items={[
+        {
+          title: 'Step 1: <span class="font-medium">Start here</span>',
+          description:
+            "We pride ourselves on being a versatile team of IT experts, adept at not only listening to customer ideas and suggestions but also crafting innovative, out-of-the-box solutions that simplify and enhance our customers' lives and productivity.",
+          icon: 'tabler:package',
+        },
+        {
+          title: 'Step 2: <span class="font-medium">Brainstorming</span>',
+          description:
+            "Let's embark on a journey to breathe life into your vision! Our first step involves having vibrant conversations with our clients, delving deep into their aspirations and needs. We're not just gathering requirements; we're crafting a symphony of ideas.",
+          icon: 'tabler:letter-case',
+        },
+        {
+          title: 'Step 3: <span class="font-medium">Implementation</span>',
+          description:
+            "Let's shake things up a bit! Dive into the project with modular flair – think of it as building with LEGO bricks, each piece contributing to the grand design. But here's the fun part – we're not keeping it all to ourselves. Nope, we're throwing mini-showcases, demos that dazzle our clients.",
+          icon: 'tabler:paint',
+        },
+        {
+          title: 'Delivery!',
+          icon: 'tabler:check',
+        },
+      ]}
+      image={{
+        src: 'https://images.unsplash.com/photo-1553877522-43269d4ea984?q=80&w=2000&auto=format&fit=crop',
+        alt: 'Axen workflow image',
+      }}
+    />
+  </section>
 
   <!-- Features2 Widget ************** -->
 
-  <Features2
-    title="Shaping Tomorrow's Digital Landscape"
-    subtitle="Our vision is rooted in a commitment to excellence, and our values reflect a dedication to shaping tomorrow's digital landscape."
-    tagline="Vision & Values"
-    items={[
-      {
-        title: 'Elevating Our Competitive Edge',
-        description: 'Value as our Competitive Advantage: In a dynamic and competitive world, our commitment to delivering unparalleled value sets us apart. We anticipate our clients to demand nothing less than the best, and we exceed those expectations.',
-        icon: 'flat-color-icons:approval',
-      },
-      {
-        title: 'Embracing Change for Progress',
-        description: 'Change Propels Our Momentum: In our realm, change isn\'t just a constant; it\'s an opportunity to surge forward. We embrace change as the driving force behind progress, ensuring our journey is marked by continuous evolution and improvement.',
-        icon: 'flat-color-icons:line-chart',
-      },
-      {
-        title: 'A Commitment to Excellence',
-        description: 'Innovation in Everything: At the core of our ethos lies an unwavering commitment to innovation. We thrive on the challenge of infusing creativity into every aspect of our work, promising our customers not just quality but constant innovation.',
-        icon: 'flat-color-icons:serial-tasks',
-      },
-      {
-        title: 'Zero Tolerance for Waste',
-        description: 'Efficiency as a Standard: Waste has no place in our operations. If we can\'t deliver, we\'re upfront about it. Our commitment to efficiency ensures that every effort is purposeful, aligning with our goal to deliver results without unnecessary waste.',
-        icon: 'flat-color-icons:reuse',
-      },
-      {
-        title: 'Transparency and Honesty',
-        description: 'Honesty in Communication: Open communication is the foundation of trust. If we can\'t do it, we won\'t sugarcoat it. Transparency and honesty guide our interactions, building trust with our clients and partners.',
-        icon: 'flat-color-icons:diploma-1',
-      },
-      {
-        title: 'Client-Centric Approach',
-        description:
-          "Client Expectations as our Compass: Our compass is set by the expectations of our clients. We don't just meet their needs; we anticipate them, ensuring that our services and solutions align with their evolving requirements.",
-        icon: 'flat-color-icons:portrait-mode',
-      },
-      {
-        title: 'Continuous Learning',
-        description:
-          "Growth through Learning: In our journey, stagnation is the enemy. We foster a culture of continuous learning, where each challenge is an opportunity to acquire new skills and knowledge, propelling our collective growth.",
-        icon: 'flat-color-icons:binoculars',
-      },
-      {
-        title: 'Team Synergy',
-        description:'Collaboration for Success: We believe in the strength of collaboration. Our diverse team comes together with a shared commitment to excellence, leveraging each other\'s strengths to achieve success collectively.',
-        icon: 'flat-color-icons:workflow',
-      },
-      {
-        title: 'Benchmarking Excellence',
-        description:
-          "Measuring against the Best: Our standards are not just internal benchmarks; they're global. We measure ourselves against world-class standards, ensuring that our pursuit of excellence is aligned with the best in the world.",
-        icon: 'flat-color-icons:rating',
-      },
-    ]}
-  >
-    <Fragment slot="bg">
-      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
-    </Fragment>
-  </Features2>
+  <section data-reveal class="section-divider">
+    <Features2
+      title="Shaping Tomorrow's Digital Landscape"
+      subtitle="Our vision is rooted in a commitment to excellence, and our values reflect a dedication to shaping tomorrow's digital landscape."
+      tagline="Vision & Values"
+      items={[
+        {
+          title: 'Elevating Our Competitive Edge',
+          description: 'Value as our Competitive Advantage: In a dynamic and competitive world, our commitment to delivering unparalleled value sets us apart. We anticipate our clients to demand nothing less than the best, and we exceed those expectations.',
+          icon: 'flat-color-icons:approval',
+        },
+        {
+          title: 'Embracing Change for Progress',
+          description:
+            "Change Propels Our Momentum: In our realm, change isn't just a constant; it's an opportunity to surge forward. We embrace change as the driving force behind progress, ensuring our journey is marked by continuous evolution and improvement.",
+          icon: 'flat-color-icons:line-chart',
+        },
+        {
+          title: 'A Commitment to Excellence',
+          description: 'Innovation in Everything: At the core of our ethos lies an unwavering commitment to innovation. We thrive on the challenge of infusing creativity into every aspect of our work, promising our customers not just quality but constant innovation.',
+          icon: 'flat-color-icons:serial-tasks',
+        },
+        {
+          title: 'Zero Tolerance for Waste',
+          description:
+            "Efficiency as a Standard: Waste has no place in our operations. If we can't deliver, we're upfront about it. Our commitment to efficiency ensures that every effort is purposeful, aligning with our goal to deliver results without unnecessary waste.",
+          icon: 'flat-color-icons:reuse',
+        },
+        {
+          title: 'Transparency and Honesty',
+          description:
+            "Honesty in Communication: Open communication is the foundation of trust. If we can't do it, we won't sugarcoat it. Transparency and honesty guide our interactions, building trust with our clients and partners.",
+          icon: 'flat-color-icons:diploma-1',
+        },
+        {
+          title: 'Client-Centric Approach',
+          description:
+            "Client Expectations as our Compass: Our compass is set by the expectations of our clients. We don't just meet their needs; we anticipate them, ensuring that our services and solutions align with their evolving requirements.",
+          icon: 'flat-color-icons:portrait-mode',
+        },
+        {
+          title: 'Continuous Learning',
+          description:
+            'Growth through Learning: In our journey, stagnation is the enemy. We foster a culture of continuous learning, where each challenge is an opportunity to acquire new skills and knowledge, propelling our collective growth.',
+          icon: 'flat-color-icons:binoculars',
+        },
+        {
+          title: 'Team Synergy',
+          description:
+            "Collaboration for Success: We believe in the strength of collaboration. Our diverse team comes together with a shared commitment to excellence, leveraging each other's strengths to achieve success collectively.",
+          icon: 'flat-color-icons:workflow',
+        },
+        {
+          title: 'Benchmarking Excellence',
+          description:
+            "Measuring against the Best: Our standards are not just internal benchmarks; they're global. We measure ourselves against world-class standards, ensuring that our pursuit of excellence is aligned with the best in the world.",
+          icon: 'flat-color-icons:rating',
+        },
+      ]}
+    >
+      <Fragment slot="bg">
+        <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
+      </Fragment>
+    </Features2>
+  </section>
 
   <!-- HighlightedPosts Widget ******* -->
 
@@ -190,52 +182,54 @@ const metadata = {
 
   <!-- FAQs Widget ******************* -->
 
-  <FAQs
-    title="Frequently Asked Questions"
-    subtitle="Dive into the following questions to gain insights into the powerful features that AstroWind offers and how it can elevate your web development journey."
-    tagline="FAQs"
-    classes={{ container: 'max-w-6xl' }}
-    items={[
-      {
-        title: 'Where is Axen based?',
-        description:
-          "Axen's IT experts operate remotely from the UK, Australia, and Sri Lanka, providing global coverage for clients in need of diverse and skilled resources.",
-      },
-      {
-        title: 'What services does Axen offer?',
-        description:
-          'Axen delivers comprehensive services, which includes all the digital services needed to run any businesses. Their experienced and technically strong managing team ensures successful project execution.',
-      },
-      {
-        title: 'How does Axen manage remote operations?',
-        description:
-          "Axen's managing team, consisting of technically strong professionals, oversees remote operations. This includes senior software engineers and a dedicated project manager, ensuring efficient project development.",
-      },
-      {
-        title: "Why choose Axen?",
-        description:
-          "Axen's global presence and a team of highly skilled experts, complemented by a technically strong managing team, make them a standout choice for clients seeking top-notch services worldwide",
-      },
-      {
-        title: 'Can Axen handle projects from any country?',
-        description:
-          "Absolutely. Axen's IT team is equipped to serve clients globally, leveraging their diverse and international expertise to understand and meet the unique requirements of clients worldwide.",
-      },
-      {
-        title: 'How does Axen ensure success with a remote team?',
-        description:
-          "Axen's approach involves a technically strong managing team overseeing operations. This includes leadership from skilled professionals and dedicated individuals contributing to a holistic project management strategy, ensuring success in remote project development.",
-      },
-      {
-        title: 'What types of projects can Axen\'s team handle?',
-        description:
-          "Axen, as a versatile digital agency, is proficient in a myriad of projects, addressing diverse needs in the digital landscape. From website development to software engineering, our team caters to a broad spectrum of digital requirements, ensuring tailored solutions for every client.",
-      },
-      {
-        title: 'How can I collaborate with Axen?',
-        description:
-          "Initiating collaboration with Axen is straightforward. Reach out to their team through the provided emails & channels, and they will guide you through the process, understanding your project needs, and tailoring a solution to meet your specific requirements.",
-      },
-    ]}
-  />
+  <section data-reveal class="section-divider">
+    <FAQs
+      title="Frequently Asked Questions"
+      subtitle="Dive into the following questions to gain insights into the powerful features that AstroWind offers and how it can elevate your web development journey."
+      tagline="FAQs"
+      classes={{ container: 'max-w-6xl' }}
+      items={[
+        {
+          title: 'Where is Axen based?',
+          description:
+            "Axen's IT experts operate remotely from the UK, Australia, and Sri Lanka, providing global coverage for clients in need of diverse and skilled resources.",
+        },
+        {
+          title: 'What services does Axen offer?',
+          description:
+            'Axen delivers comprehensive services, which includes all the digital services needed to run any businesses. Their experienced and technically strong managing team ensures successful project execution.',
+        },
+        {
+          title: 'How does Axen manage remote operations?',
+          description:
+            "Axen's managing team, consisting of technically strong professionals, oversees remote operations. This includes senior software engineers and a dedicated project manager, ensuring efficient project development.",
+        },
+        {
+          title: 'Why choose Axen?',
+          description:
+            "Axen's global presence and a team of highly skilled experts, complemented by a technically strong managing team, make them a standout choice for clients seeking top-notch services worldwide",
+        },
+        {
+          title: 'Can Axen handle projects from any country?',
+          description:
+            "Absolutely. Axen's IT team is equipped to serve clients globally, leveraging their diverse and international expertise to understand and meet the unique requirements of clients worldwide.",
+        },
+        {
+          title: 'How does Axen ensure success with a remote team?',
+          description:
+            "Axen's approach involves a technically strong managing team overseeing operations. This includes leadership from skilled professionals and dedicated individuals contributing to a holistic project management strategy, ensuring success in remote project development.",
+        },
+        {
+          title: "What types of projects can Axen's team handle?",
+          description:
+            'Axen, as a versatile digital agency, is proficient in a myriad of projects, addressing diverse needs in the digital landscape. From website development to software engineering, our team caters to a broad spectrum of digital requirements, ensuring tailored solutions for every client.',
+        },
+        {
+          title: 'How can I collaborate with Axen?',
+          description:
+            'Initiating collaboration with Axen is straightforward. Reach out to their team through the provided emails & channels, and they will guide you through the process, understanding your project needs, and tailoring a solution to meet your specific requirements.',
+        },
+      ]}
+    />
+  </section>
 </Layout>

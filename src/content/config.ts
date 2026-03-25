@@ -63,6 +63,47 @@ const postCollection = defineCollection({
   }),
 });
 
+const servicesCollection = defineCollection({
+  schema: z.object({
+    title: z.string(),
+    description: z.string(),
+    intro: z.string(),
+    hero: z
+      .object({
+        title: z.string().optional(),
+        subtitle: z.string().optional(),
+        image: z.string().optional(),
+        imageAlt: z.string().optional(),
+      })
+      .optional(),
+    benefits: z.array(
+      z.object({
+        title: z.string(),
+        description: z.string(),
+      })
+    ),
+    process: z.array(
+      z.object({
+        title: z.string(),
+        description: z.string(),
+      })
+    ),
+    examples: z
+      .array(
+        z.object({
+          title: z.string(),
+          description: z.string(),
+          result: z.string().optional(),
+        })
+      )
+      .optional(),
+    keywords: z.array(z.string()).optional(),
+    featured: z.boolean().optional(),
+    metadata: metadataDefinition(),
+  }),
+});
+
 export const collections = {
   post: postCollection,
+  services: servicesCollection,
 };

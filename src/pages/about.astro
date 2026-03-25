@@ -13,44 +13,48 @@ const metadata = {
 <Layout metadata={metadata}>
   <!-- Hero Widget ******************* -->
 
-  <Hero2
-    tagline="About us"
+  <section data-reveal class="section-divider">
+    <Hero2
+      tagline="About us"
     image={{
-      src: 'https://res.cloudinary.com/quadrate/image/upload/v1707416464/depositphotos_356536230-stock-illustration-open-space-team-working-process_swwbbo.webp',
+      src: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2000&auto=format&fit=crop',
       alt: 'About us banner',
     }}
   >
-    <Fragment slot="title">
-      <span class="text-accent dark:text-white highlight"> Unleashing</span>
-      <br /> Digital Excellence
-    </Fragment>
+      <Fragment slot="title">
+        <span class="text-accent dark:text-white highlight"> Unleashing</span>
+        <br /> Digital Excellence
+      </Fragment>
 
-    <Fragment slot="subtitle">
-      Welcome to Axen, where digital innovation meets unrivaled expertise. Transform your online presence with our
-      bespoke suite of services tailored to meet the unique needs of your business. From pioneering web application
-      development and cutting-edge mobile app creation to strategic digital marketing campaigns, our team is dedicated
-      to crafting solutions that prioritize scalability, user-centric design, and the latest technologies. At Axen, we
-      are committed to delivering impeccable quality through rigorous quality assurance processes. Our expertise goes
-      beyond; it's about enhancing user engagement and ensuring a seamless digital experience. We understand
-      the ever-evolving digital landscape, and our technical consultation services provide expert guidance to optimize
-      your technological infrastructure for sustained success.
-    </Fragment>
-  </Hero2>
+      <Fragment slot="subtitle">
+        Welcome to Axen, where digital innovation meets unrivaled expertise. Transform your online presence with our
+        bespoke suite of services tailored to meet the unique needs of your business. From pioneering web application
+        development and cutting-edge mobile app creation to strategic digital marketing campaigns, our team is dedicated
+        to crafting solutions that prioritize scalability, user-centric design, and the latest technologies. At Axen, we
+        are committed to delivering impeccable quality through rigorous quality assurance processes. Our expertise goes
+        beyond; it's about enhancing user engagement and ensuring a seamless digital experience. We understand
+        the ever-evolving digital landscape, and our technical consultation services provide expert guidance to optimize
+        your technological infrastructure for sustained success.
+      </Fragment>
+    </Hero2>
+  </section>
 
   <!-- Stats Widget ****************** -->
 
-  <Stats
-    title="Statistics about us"
-    stats={[
-      { title: 'Offices', amount: '3' },
-      { title: 'Employees', amount: '27' },
-      { title: 'Years', amount: '5' },
-      { title: 'Projects', amount: '30+' },
-    ]}
-  />
+  <section data-reveal class="section-divider">
+    <Stats
+      title="Statistics about us"
+      stats={[
+        { title: 'Offices', amount: '3' },
+        { title: 'Employees', amount: '27' },
+        { title: 'Years', amount: '5' },
+        { title: 'Projects', amount: '30+' },
+      ]}
+    />
+  </section>
 
   <!-- Features3 Widget ************** -->
-  <div class="relative mx-auto max-w-7xl px-4 md:px-6 py-6 md:py-6 lg:py-10 text-default pt-0 md:pt-0 lg:pt-0">
+  <div class="relative mx-auto max-w-7xl px-4 md:px-6 py-6 md:py-6 lg:py-10 text-default pt-0 md:pt-0 lg:pt-0 section-divider" data-reveal>
     <div aria-hidden="true" class="aspect-w-16 aspect-h-7">
       <div class="w-full h-80 object-cover rounded-xl mx-auto bg-gray-500 shadow-lg">
         <Image
@@ -59,41 +63,44 @@ const metadata = {
           widths={[400, 768]}
           style="object-position: bottom"
           {...{
-            src: 'https://images.unsplash.com/photo-1606857521015-7f9fcf423740?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-            alt: 'Image of people working in a workplace',
+            src: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=2000&auto=format&fit=crop',
+            alt: 'Team collaborating in the studio',
           } as any}
         />
       </div>
     </div>
   </div>
 
-  <Features2
-    title="Our Locations 📍"
-    tagline="Find us"
-    columns={3}
-    items={[
-      {
-        title: 'United Kingdom  🇬🇧',
-        description: 'No. 78, Queens Gate, 2 Lord Street, Watford, WD17 2LQ.',
-      },
-      {
-        title: 'Australia  🇦🇺',
-        description: '241 Campbell Road, Canning Vale, WA 6155',
-      },
-      {
-        title: 'Sri Lanka 🇱🇰',
-        description: '2nd Floor, 275 Nawala Road, Sri Jayawardenepura Kotte, 10250',
-      },
-    ]}
-  />
+  <section data-reveal class="section-divider">
+    <Features2
+      title="Our Locations 📍"
+      tagline="Find us"
+      columns={3}
+      items={[
+        {
+          title: 'United Kingdom  🇬🇧',
+          description: 'No. 78, Queens Gate, 2 Lord Street, Watford, WD17 2LQ.',
+        },
+        {
+          title: 'Australia  🇦🇺',
+          description: '241 Campbell Road, Canning Vale, WA 6155',
+        },
+        {
+          title: 'Sri Lanka 🇱🇰',
+          description: '2nd Floor, 275 Nawala Road, Sri Jayawardenepura Kotte, 10250',
+        },
+      ]}
+    />
+  </section>
 
   <!-- Steps2 Widget ****************** -->
-  <Features2
-    columns={3}
-    title="Shaping Tomorrow's Digital Landscape"
-    subtitle="Our vision is rooted in a commitment to excellence, and our values reflect a dedication to shaping tomorrow's digital landscape."
-    tagline="Vision & Values"
-    items={[
+  <section data-reveal class="section-divider">
+    <Features2
+      columns={3}
+      title="Shaping Tomorrow's Digital Landscape"
+      subtitle="Our vision is rooted in a commitment to excellence, and our values reflect a dedication to shaping tomorrow's digital landscape."
+      tagline="Vision & Values"
+      items={[
       {
         title: 'Elevating Our Competitive Edge',
         description:
@@ -148,24 +155,27 @@ const metadata = {
           "Measuring against the Best: Our standards are not just internal benchmarks; they're global. We measure ourselves against world-class standards, ensuring that our pursuit of excellence is aligned with the best in the world.",
         icon: 'flat-color-icons:rating',
       },
-    ]}
-  >
-    <Fragment slot="bg">
-      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
-    </Fragment>
-  </Features2>
+      ]}
+    >
+      <Fragment slot="bg">
+        <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
+      </Fragment>
+    </Features2>
+  </section>
 
   <!-- Features2 Widget ************** -->
 
-  <CallToAction
-    actions={[
-      {
-        variant: 'primary',
-        text: 'Tell us your story',
-        href: '/contact',
-      },
-    ]}
-    title="Feeling inspired?"
-    subtitle="Transform your projects, whether in business, design, or education, with our exceptional services. Ready to elevate your business? Contact us now to get started!    "
-  />
+  <section data-reveal class="section-divider">
+    <CallToAction
+      actions={[
+        {
+          variant: 'primary',
+          text: 'Tell us your story',
+          href: '/contact',
+        },
+      ]}
+      title="Feeling inspired?"
+      subtitle="Transform your projects, whether in business, design, or education, with our exceptional services. Ready to elevate your business? Contact us now to get started!    "
+    />
+  </section>
 </Layout>
